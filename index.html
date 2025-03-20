@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Форум</title>
+    <title>Мини-форум</title>
     <style>
+        /* Основные стили */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #00B4DB, #0083B0);
@@ -114,11 +115,41 @@
             color: white;
             font-size: 0.9em;
         }
+
+        .comment {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .comment small {
+            color: #777;
+        }
+
+        .pagination {
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background: #0077B6;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #00B4DB;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>The Форум</h1>
+        <h1>Мини-форум</h1>
     </header>
 
     <nav>
@@ -187,7 +218,20 @@
                 <h3>Пример поста</h3>
                 <p>Это пример текста поста. Здесь может быть любая информация.</p>
                 <small>Автор: TheCreativshik, Дата: 2025-01-01</small>
+                <div class="comments">
+                    <div class="comment">
+                        <p>Это пример комментария.</p>
+                        <small>Автор: User1, Дата: 2025-01-01</small>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Пагинация -->
+        <div class="pagination">
+            <button onclick="loadPosts(1)">1</button>
+            <button onclick="loadPosts(2)">2</button>
+            <button onclick="loadPosts(3)">3</button>
         </div>
     </div>
 
@@ -196,6 +240,10 @@
     </footer>
 
     <script>
+        // Логика мини-форума
+        let posts = [];
+        let currentUser = null;
+
         // Переключение между формами
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {
@@ -213,6 +261,7 @@
             e.preventDefault();
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
+            currentUser = username;
             alert(`Вход выполнен: ${username}`);
             // Здесь можно добавить запрос на сервер для авторизации
         });
@@ -232,18 +281,50 @@
             e.preventDefault();
             const title = document.getElementById('postTitle').value;
             const content = document.getElementById('postContent').value;
-            const postsDiv = document.getElementById('posts');
-            const newPost = document.createElement('div');
-            newPost.className = 'post';
-            newPost.innerHTML = `
-                <h3>${title}</h3>
-                <p>${content}</p>
-                <small>Автор: TheCreativshik, Дата: ${new Date().toLocaleDateString()}</small>
-            `;
-            postsDiv.appendChild(newPost);
+            const newPost = {
+                id: posts.length + 1,
+                title,
+                content,
+                author: currentUser || "Гость",
+                date: new Date().toLocaleDateString(),
+                comments: [],
+                likes: 0,
+                dislikes: 0
+            };
+            posts.push(newPost);
+            renderPosts();
             alert('Пост опубликован!');
-            // Здесь можно добавить запрос на сервер для сохранения поста
         });
+
+        // Рендеринг постов
+        function renderPosts() {
+            const postsDiv = document.getElementById('posts');
+            postsDiv.innerHTML = '<h2>Последние посты</h2>';
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
+                postElement.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                    <small>Автор: ${post.author}, Дата: ${post.date}</small>
+                    <div class="comments">
+                        ${post.comments.map(comment => `
+                            <div class="comment">
+                                <p>${comment.text}</p>
+                                <small>Автор: ${comment.author}, Дата: ${comment.date}</small>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                postsDiv.appendChild(postElement);
+            });
+        }
+
+        // Загрузка постов (симуляция)
+        function loadPosts(page) {
+            alert(`Загрузка постов страницы ${page}`);
+            // Здесь можно добавить запрос на сервер для загрузки постов
+        }
     </script>
 </body>
 </html>
