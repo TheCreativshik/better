@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Форум</title>
+    <title>The Р¤РѕСЂСѓРј</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #00B4DB, #0083B0); /* Градиент между синим и зелёным */
+            background: linear-gradient(135deg, #00B4DB, #0083B0);
             color: #333;
             margin: 0;
             padding: 0;
@@ -15,7 +15,7 @@
         }
 
         header {
-            background: #0077B6; /* Тёмно-синий */
+            background: #0077B6;
             color: white;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -27,14 +27,14 @@
 
         nav a {
             margin: 0 10px;
-            color: #0077B6; /* Тёмно-синий */
+            color: #0077B6;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #00B4DB; /* Светло-синий */
+            color: #00B4DB;
         }
 
         .container {
@@ -57,7 +57,7 @@
 
         .post h3 {
             margin: 0;
-            color: #0077B6; /* Тёмно-синий */
+            color: #0077B6;
         }
 
         .post p {
@@ -75,7 +75,7 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            color: #0077B6; /* Тёмно-синий */
+            color: #0077B6;
         }
 
         .form-group input, .form-group textarea {
@@ -94,7 +94,7 @@
         .button-style {
             display: inline-block;
             padding: 10px 20px;
-            background: #0077B6; /* Тёмно-синий */
+            background: #0077B6;
             color: white;
             border: none;
             border-radius: 5px;
@@ -104,13 +104,13 @@
         }
 
         .button-style:hover {
-            background: #00B4DB; /* Светло-синий */
+            background: #00B4DB;
         }
 
         footer {
             margin-top: 40px;
             padding: 10px;
-            background: #0077B6; /* Тёмно-синий */
+            background: #0077B6;
             color: white;
             font-size: 0.9em;
         }
@@ -118,85 +118,85 @@
 </head>
 <body>
     <header>
-        <h1>The Форум</h1>
+        <h1>The Р¤РѕСЂСѓРј</h1>
     </header>
 
     <nav>
-        <a href="#login">Вход</a>
-        <a href="#register">Регистрация</a>
-        <a href="#new-post">Новый пост</a>
+        <a href="#login">Р’С…РѕРґ</a>
+        <a href="#register">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
+        <a href="#new-post">РќРѕРІС‹Р№ РїРѕСЃС‚</a>
     </nav>
 
     <div class="container">
-        <!-- Форма входа -->
+        <!-- Р¤РѕСЂРјР° РІС…РѕРґР° -->
         <div id="login" class="form-container">
-            <h2>Вход</h2>
+            <h2>Р’С…РѕРґ</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="loginUsername">Имя пользователя:</label>
+                    <label for="loginUsername">РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ:</label>
                     <input type="text" id="loginUsername" required>
                 </div>
                 <div class="form-group">
-                    <label for="loginPassword">Пароль:</label>
+                    <label for="loginPassword">РџР°СЂРѕР»СЊ:</label>
                     <input type="password" id="loginPassword" required>
                 </div>
-                <button type="submit" class="button-style">Войти</button>
+                <button type="submit" class="button-style">Р’РѕР№С‚Рё</button>
             </form>
         </div>
 
-        <!-- Форма регистрации -->
+        <!-- Р¤РѕСЂРјР° СЂРµРіРёСЃС‚СЂР°С†РёРё -->
         <div id="register" class="form-container" style="display: none;">
-            <h2>Регистрация</h2>
+            <h2>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h2>
             <form id="registerForm">
                 <div class="form-group">
-                    <label for="registerUsername">Имя пользователя:</label>
+                    <label for="registerUsername">РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ:</label>
                     <input type="text" id="registerUsername" required>
                 </div>
                 <div class="form-group">
-                    <label for="registerPassword">Пароль:</label>
+                    <label for="registerPassword">РџР°СЂРѕР»СЊ:</label>
                     <input type="password" id="registerPassword" required>
                 </div>
                 <div class="form-group">
                     <label for="registerEmail">Email:</label>
                     <input type="email" id="registerEmail" required>
                 </div>
-                <button type="submit" class="button-style">Зарегистрироваться</button>
+                <button type="submit" class="button-style">Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ</button>
             </form>
         </div>
 
-        <!-- Форма нового поста -->
+        <!-- Р¤РѕСЂРјР° РЅРѕРІРѕРіРѕ РїРѕСЃС‚Р° -->
         <div id="new-post" class="form-container" style="display: none;">
-            <h2>Новый пост</h2>
+            <h2>РќРѕРІС‹Р№ РїРѕСЃС‚</h2>
             <form id="postForm">
                 <div class="form-group">
-                    <label for="postTitle">Заголовок:</label>
+                    <label for="postTitle">Р—Р°РіРѕР»РѕРІРѕРє:</label>
                     <input type="text" id="postTitle" required>
                 </div>
                 <div class="form-group">
-                    <label for="postContent">Содержание:</label>
+                    <label for="postContent">РЎРѕРґРµСЂР¶Р°РЅРёРµ:</label>
                     <textarea id="postContent" required></textarea>
                 </div>
-                <button type="submit" class="button-style">Опубликовать</button>
+                <button type="submit" class="button-style">РћРїСѓР±Р»РёРєРѕРІР°С‚СЊ</button>
             </form>
         </div>
 
-        <!-- Список постов -->
+        <!-- РЎРїРёСЃРѕРє РїРѕСЃС‚РѕРІ -->
         <div id="posts">
-            <h2>Последние посты</h2>
+            <h2>РџРѕСЃР»РµРґРЅРёРµ РїРѕСЃС‚С‹</h2>
             <div class="post">
-                <h3>Пример поста</h3>
-                <p>Это пример текста поста. Здесь может быть любая информация.</p>
-                <small>Автор: TheCreativshik, Дата: 2025-01-01</small>
+                <h3>РџСЂРёРјРµСЂ РїРѕСЃС‚Р°</h3>
+                <p>Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РїРѕСЃС‚Р°. Р—РґРµСЃСЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»СЋР±Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ.</p>
+                <small>РђРІС‚РѕСЂ: TheCreativshik, Р”Р°С‚Р°: 2025-01-01</small>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>©TheCreativshik 2025-2025</p>
+        <p>В©TheCreativshik 2025-2025</p>
     </footer>
 
     <script>
-        // Переключение между формами
+        // РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РјРµР¶РґСѓ С„РѕСЂРјР°РјРё
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -208,26 +208,26 @@
             });
         });
 
-        // Обработка формы входа
+        // РћР±СЂР°Р±РѕС‚РєР° С„РѕСЂРјС‹ РІС…РѕРґР°
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
-            alert(`Вход выполнен: ${username}`);
-            // Здесь можно добавить запрос на сервер для авторизации
+            alert(`Р’С…РѕРґ РІС‹РїРѕР»РЅРµРЅ: ${username}`);
+            // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ Р·Р°РїСЂРѕСЃ РЅР° СЃРµСЂРІРµСЂ РґР»СЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё
         });
 
-        // Обработка формы регистрации
+        // РћР±СЂР°Р±РѕС‚РєР° С„РѕСЂРјС‹ СЂРµРіРёСЃС‚СЂР°С†РёРё
         document.getElementById('registerForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const username = document.getElementById('registerUsername').value;
             const password = document.getElementById('registerPassword').value;
             const email = document.getElementById('registerEmail').value;
-            alert(`Регистрация: ${username}, ${email}`);
-            // Здесь можно добавить запрос на сервер для регистрации
+            alert(`Р РµРіРёСЃС‚СЂР°С†РёСЏ: ${username}, ${email}`);
+            // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ Р·Р°РїСЂРѕСЃ РЅР° СЃРµСЂРІРµСЂ РґР»СЏ СЂРµРіРёСЃС‚СЂР°С†РёРё
         });
 
-        // Обработка формы нового поста
+        // РћР±СЂР°Р±РѕС‚РєР° С„РѕСЂРјС‹ РЅРѕРІРѕРіРѕ РїРѕСЃС‚Р°
         document.getElementById('postForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const title = document.getElementById('postTitle').value;
@@ -238,11 +238,11 @@
             newPost.innerHTML = `
                 <h3>${title}</h3>
                 <p>${content}</p>
-                <small>Автор: TheCreativshik, Дата: ${new Date().toLocaleDateString()}</small>
+                <small>РђРІС‚РѕСЂ: TheCreativshik, Р”Р°С‚Р°: ${new Date().toLocaleDateString()}</small>
             `;
             postsDiv.appendChild(newPost);
-            alert('Пост опубликован!');
-            // Здесь можно добавить запрос на сервер для сохранения поста
+            alert('РџРѕСЃС‚ РѕРїСѓР±Р»РёРєРѕРІР°РЅ!');
+            // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ Р·Р°РїСЂРѕСЃ РЅР° СЃРµСЂРІРµСЂ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РїРѕСЃС‚Р°
         });
     </script>
 </body>
