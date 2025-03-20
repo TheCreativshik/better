@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Форум</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00B4DB, #0083B0); /* Градиент между синим и зелёным */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #0077B6; /* Тёмно-синий */
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #0077B6; /* Тёмно-синий */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00B4DB; /* Светло-синий */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .post {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .post h3 {
+            margin: 0;
+            color: #0077B6; /* Тёмно-синий */
+        }
+
+        .post p {
+            margin: 10px 0;
+        }
+
+        .post small {
+            color: #777;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #0077B6; /* Тёмно-синий */
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .button-style {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0077B6; /* Тёмно-синий */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button-style:hover {
+            background: #00B4DB; /* Светло-синий */
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            background: #0077B6; /* Тёмно-синий */
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Форум</h1>
+    </header>
+
+    <nav>
+        <a href="#login">Вход</a>
+        <a href="#register">Регистрация</a>
+        <a href="#new-post">Новый пост</a>
+    </nav>
+
+    <div class="container">
+        <!-- Форма входа -->
+        <div id="login" class="form-container">
+            <h2>Вход</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Имя пользователя:</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="button-style">Войти</button>
+            </form>
+        </div>
+
+        <!-- Форма регистрации -->
+        <div id="register" class="form-container" style="display: none;">
+            <h2>Регистрация</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">Имя пользователя:</label>
+                    <input type="text" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Пароль:</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <button type="submit" class="button-style">Зарегистрироваться</button>
+            </form>
+        </div>
+
+        <!-- Форма нового поста -->
+        <div id="new-post" class="form-container" style="display: none;">
+            <h2>Новый пост</h2>
+            <form id="postForm">
+                <div class="form-group">
+                    <label for="postTitle">Заголовок:</label>
+                    <input type="text" id="postTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="postContent">Содержание:</label>
+                    <textarea id="postContent" required></textarea>
+                </div>
+                <button type="submit" class="button-style">Опубликовать</button>
+            </form>
+        </div>
+
+        <!-- Список постов -->
+        <div id="posts">
+            <h2>Последние посты</h2>
+            <div class="post">
+                <h3>Пример поста</h3>
+                <p>Это пример текста поста. Здесь может быть любая информация.</p>
+                <small>Автор: TheCreativshik, Дата: 2025-01-01</small>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>©TheCreativshik 2025-2025</p>
+    </footer>
+
+    <script>
+        // Переключение между формами
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href').substring(1);
+                document.querySelectorAll('.form-container').forEach(form => {
+                    form.style.display = 'none';
+                });
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+
+        // Обработка формы входа
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            alert(`Вход выполнен: ${username}`);
+            // Здесь можно добавить запрос на сервер для авторизации
+        });
+
+        // Обработка формы регистрации
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const email = document.getElementById('registerEmail').value;
+            alert(`Регистрация: ${username}, ${email}`);
+            // Здесь можно добавить запрос на сервер для регистрации
+        });
+
+        // Обработка формы нового поста
+        document.getElementById('postForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const postsDiv = document.getElementById('posts');
+            const newPost = document.createElement('div');
+            newPost.className = 'post';
+            newPost.innerHTML = `
+                <h3>${title}</h3>
+                <p>${content}</p>
+                <small>Автор: TheCreativshik, Дата: ${new Date().toLocaleDateString()}</small>
+            `;
+            postsDiv.appendChild(newPost);
+            alert('Пост опубликован!');
+            // Здесь можно добавить запрос на сервер для сохранения поста
+        });
+    </script>
+</body>
+</html>
